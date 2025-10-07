@@ -2,11 +2,15 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import { IoIosArrowDropright } from "react-icons/io";
-import axiosInstance from "../../Axios/axiosConfig";
+// import axiosInstance from "../../Axios/axiosConfig";
+// import axios from "axios";
 import { QuestionContext } from "../../context/QuestionProvide";
 import { UserContext } from "../../context/UserProvide";
 import styles from "./Home.module.css";
 import { ClipLoader } from "react-spinners";
+import axios from "axios";
+import DOMPurify from "dompurify";
+
 
 const Home = () => {
   const token = localStorage.getItem("token");
@@ -24,11 +28,15 @@ const Home = () => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axiosInstance.get("/questions/all-questions", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          "http://localhost:5000/api/all-questions",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(response.data.questions);
         setQuestions(response.data.questions);
         setLoading(false);
       } catch (err) {
@@ -159,7 +167,7 @@ const Home = () => {
                       className={styles.descriptionDiv}
                       dangerouslySetInnerHTML={{
                         __html: DOMPurify.sanitize(
-                          question?.question_description
+                          question?.description
                         ),
                       }}
                     />

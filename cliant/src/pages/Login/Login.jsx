@@ -43,14 +43,16 @@ function Login() {
       setSuccessMessage(data.msg);
       //put the value of the token to local storage
       localStorage.setItem("token",data.token);
-      setUser({ token: data?.token,user:data?.user.username}); // Update the UserContext
+      // setUser({ token: data?.token,user:data?.user.username}); // Update the UserContext
+      setUser({ token: data?.token, user: data?.user?.username || "" });
+
       console.log(data);
 
       navigate("/home");
     } catch (error) {
       console.error("Login error:", error);
       setError(
-        error.data?.msg || "Something went wrong! Please try again."
+        error.repsponse?.data?.msg || "Something went wrong! Please try again."
       );
     }
     setLoading(false);

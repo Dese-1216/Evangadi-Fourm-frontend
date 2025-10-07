@@ -14,7 +14,7 @@ import Footer from "./components/Footer/Footer";
 import HowItWorks from "./pages/HowItWorks/HowItWorks";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import QuestionPage from "./components/QuestionPage/QuestionPage";
-import GetAllQuestions from "./components/GetAllQuestions/GetAllQuestion";
+import GetAllQuestions from "./components/GetAllQuestins/GetAllQuestions";
 
 function App() {
   const { user, setUser } = useContext(UserContext);

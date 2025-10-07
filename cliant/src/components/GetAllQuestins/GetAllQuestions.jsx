@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./GetAllQuestions.css"; // Optional: for styling
+import styles from "./GetAllQuestions.module.css"; // Optional: for styling
 
 const GetAllQuestions = () => {
   const [questions, setQuestions] = useState([]);
@@ -8,9 +8,8 @@ const GetAllQuestions = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:5000/api/get-all-questions"
-        );
+        const res = await axios.get("http://localhost:5000/api/all-questions");
+        console.log(res)
         setQuestions(res.data.response);
       } catch (error) {
         console.error("Error fetching questions:", error);
@@ -21,7 +20,7 @@ const GetAllQuestions = () => {
   }, []);
 
   return (
-    <div className="questions-container">
+    <div className={styles.questions-container}>
       <h2>All Questions</h2>
       {questions.map((q) => (
         <div key={q.questionid} className="question-card">
