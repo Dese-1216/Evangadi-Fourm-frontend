@@ -21,7 +21,7 @@ const ProtectedRoute = ({ children }) => {
     if (!user || !token || isTokenExpired(token)) {
       localStorage.removeItem("token"); // Remove expired token
       setUser(null); // Clear user context
-      navigate("/users/login"); // Redirect to login
+      navigate("/login"); // Redirect to login
     }
   }, [user, token, navigate, setUser]);
 

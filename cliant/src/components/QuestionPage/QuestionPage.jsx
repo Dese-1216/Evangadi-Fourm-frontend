@@ -1,13 +1,12 @@
 import React from "react";
 import QuestionForm from "../QuestionForm/QuestionForm";
-import AskAi from "../AskAi/AskAi";
 
 const QuestionPage = () => {
   return (
-    <>
+    <div className="question-page">
+      <h2>Ask a Programming Question</h2>
       <QuestionForm />
-      <AskAi />
-    </>
+    </div>
   );
 };
 

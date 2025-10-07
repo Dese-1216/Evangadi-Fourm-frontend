@@ -10,6 +10,7 @@ import {
   FaEye,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const steps = [
   {
@@ -67,21 +68,36 @@ function HowItWorks() {
       </p>
 
       <div className={styles.steps}>
-        {steps.map((step, index) => (
-          <motion.div
-            key={index}
-            className={styles.card}
-            custom={index}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={cardVariants}
-          >
-            <div className={styles.icon}>{step.icon}</div>
-            <h3 className={styles.stepTitle}>{step.title}</h3>
-            <p className={styles.stepDesc}>{step.desc}</p>
-          </motion.div>
-        ))}
+        {steps.map((step, index) => {
+          const card = (
+            <motion.div
+              key={index}
+              className={styles.card}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={cardVariants}
+            >
+              <div className={styles.icon}>{step.icon}</div>
+              <h3 className={styles.stepTitle}>{step.title}</h3>
+              <p className={styles.stepDesc}>{step.desc}</p>
+            </motion.div>
+          );
+
+          // Make Step 3 clickable
+          return step.title.startsWith("3.") ? (
+            <Link
+              to="/ask-question"
+              key={index}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              {card}
+            </Link>
+          ) : (
+            card
+          );
+        })}
       </div>
     </section>
   );

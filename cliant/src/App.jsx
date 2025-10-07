@@ -1,4 +1,4 @@
-import { Route, Routes,Navigate } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home/Home";
 import Login from "./pages/Login/Login";
@@ -7,12 +7,14 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "./context/UserProvide";
 import { useNavigate } from "react-router-dom";
 import isTokenExpired from "./utils/tokenUtils";
-import Header from "./components/Header/Header"
-import ProtectedRoute from "./context/ProtectedRoute"
-import LandingPage from "./pages/LandingPage/LandingPage"
-import Footer from "./components/Footer/Footer"
-import HowItWorks from "./pages/HowItWorks/HowItWorks"
-import ContactUs from "./pages/ContactUs/ContactUs"
+import Header from "./components/Header/Header";
+import ProtectedRoute from "./context/ProtectedRoute";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import Footer from "./components/Footer/Footer";
+import HowItWorks from "./pages/HowItWorks/HowItWorks";
+import ContactUs from "./pages/ContactUs/ContactUs";
+import QuestionPage from "./components/QuestionPage/QuestionPage";
+
 
 function App() {
   const { user, setUser } = useContext(UserContext);
@@ -66,17 +68,31 @@ function App() {
 
   return (
     <>
-    <Header/>
+      <Header />
       <Routes>
-        <Route path="/" element={<LandingPage/>}/>
-         <Route path="/home" element={
-          <ProtectedRoute><Home /></ProtectedRoute>} />
-          <Route path="/how-it-works" element={<HowItWorks/>}/>
-          <Route path="/contact" element={<ContactUs/>}/>
-        <Route path="/login" element={ <Login />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route
+          path="/ask-question"
+          element={
+            <ProtectedRoute>
+              <QuestionPage />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   );
 }

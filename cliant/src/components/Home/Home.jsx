@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
@@ -12,7 +11,7 @@ import { ClipLoader } from "react-spinners";
 const Home = () => {
   const token = localStorage.getItem("token");
   const { questions, setQuestions } = useContext(QuestionContext);
-  const {user} = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
@@ -94,7 +93,7 @@ const Home = () => {
     indexOfFirstQuestion,
     indexOfLastQuestion
   );
-// console.log(user);
+  // console.log(user);
 
   return (
     <div className={styles.homeContainer}>
@@ -106,13 +105,9 @@ const Home = () => {
           Ask a Question
         </button>
         <div className={styles.welcomeUser}>
-  <h1>
-    Welcome: {user ? user.user : "Loading..."}!
-  </h1>
-  <p>Learn, Share, and Inspire Others!</p>
-</div>
-
-        
+          <h1>Welcome: {user ? user.user : "Loading..."}!</h1>
+          <p>Learn, Share, and Inspire Others!</p>
+        </div>
       </header>
 
       <div className={styles.searchContainer}>
