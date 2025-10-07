@@ -6,6 +6,7 @@ const QuestionPage = () => {
     <div className="question-page">
       <h2>Ask a Programming Question</h2>
       <QuestionForm />
+      <AskAi />
     </div>
   );
 };
