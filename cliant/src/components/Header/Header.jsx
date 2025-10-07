@@ -85,6 +85,16 @@ function Header() {
                 </li>
               )
             )}
+
+            <li>
+              <Link
+                to="/questions"
+                className={styles.link}
+                onClick={() => setMenuOpen(false)}
+              >
+                Questions
+              </Link>
+            </li>
           </ul>
         </nav>
       </header>

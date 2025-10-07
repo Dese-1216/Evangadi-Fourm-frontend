@@ -1,0 +1,48 @@
+.questionsContainer {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.questionCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: background-color 0.2s ease;
+}
+
+.questionCard:hover {
+  background-color: #eef6ff;
+  cursor: pointer;
+}
+
+.userIcon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.questionContent {
+  flex-grow: 1;
+}
+
+.username {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.title {
+  margin: 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.arrow {
+  font-size: 20px;
+  color: #888;
+}
