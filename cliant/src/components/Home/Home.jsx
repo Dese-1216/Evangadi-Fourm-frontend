@@ -108,7 +108,7 @@ const Home = () => {
       <header className={styles.homeHeader}>
         <button
           className={styles.askQuestionBtn}
-          onClick={() => navigate("/ask")}
+          onClick={() => navigate("/ask-questions")}
         >
           Ask a Question
         </button>

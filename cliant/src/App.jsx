@@ -15,6 +15,7 @@ import HowItWorks from "./pages/HowItWorks/HowItWorks";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import QuestionPage from "./components/QuestionPage/QuestionPage";
 import GetAllQuestions from "./components/GetAllQuestins/GetAllQuestions";
+ 
 
 function App() {
   const { user, setUser } = useContext(UserContext);
@@ -87,7 +88,7 @@ function App() {
           path="/ask-question"
           element={
             <ProtectedRoute>
-              <QuestionPage />
+              <QuestionPage/>
             </ProtectedRoute>
           }
         />

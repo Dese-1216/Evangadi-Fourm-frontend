@@ -22,7 +22,7 @@ function Header() {
 
   const handleClick = () => {
     if (token) {
-      navigate("/home");
+      navigate("/");
     } else {
       navigate("/");
     }
@@ -88,7 +88,7 @@ function Header() {
 
             <li>
               <Link
-                to="/questions"
+                to="/all-questions"
                 className={styles.link}
                 onClick={() => setMenuOpen(false)}
               >

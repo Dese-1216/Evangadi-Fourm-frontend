@@ -12,7 +12,7 @@ const AskAi = () => {
       return console.error("please type a question");
     }
     setLoading(true);
-    // TODO: Send prompt to AI backend and display response
+      // Send prompt to AI backend and display response
 
     try {
       const res = await axios.post("http://localhost:5000/api/ask-ai", {
