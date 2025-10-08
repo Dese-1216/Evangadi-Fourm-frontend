@@ -13,6 +13,7 @@ import LandingPage from "./pages/LandingPage/LandingPage"
 import Footer from "./components/Footer/Footer"
 import HowItWorks from "./pages/HowItWorks/HowItWorks"
 import ContactUs from "./pages/ContactUs/ContactUs"
+import AnswerPage from "./pages/AnswerPage/AnswePage";
 
 function App() {
   const { user, setUser } = useContext(UserContext);
@@ -75,6 +76,11 @@ function App() {
           <Route path="/contact" element={<ContactUs/>}/>
         <Route path="/login" element={ <Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/questions/:questionId" element={
+          // <ProtectedRoute>
+            <AnswerPage/>
+          // </ProtectedRoute>
+        } />
       </Routes>
       <Footer/>
     </>
