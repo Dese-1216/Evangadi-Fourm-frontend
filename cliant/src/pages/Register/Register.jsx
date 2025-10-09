@@ -61,7 +61,7 @@ const Register = () => {
         email: "",
         password: "",
       });
-      navigate("/login");
+      navigate("/home");
     } catch (error) {
       setError(
         error.response ? error.response.data.msg : "Something went wrong!"
